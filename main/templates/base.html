@@ -4,6 +4,8 @@
 <head>
     <title>Errors2Experts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Errors2Experts - Professional IT Training Institute">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,18 +13,118 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
+    <!-- Modern Design System -->
+    <link rel="stylesheet" href="{% static 'css/modern-design.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+
+    <!-- Existing Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/services.css' %}">
     <link rel="stylesheet" href="{% static 'css/project.css' %}">
     <link rel="stylesheet" href="{% static 'css/reviews1.css' %}">
     <link rel="stylesheet" href="{% static 'css/career.css' %}">
-     <link rel="stylesheet" href="{% static 'css/swipe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swipe.css' %}">
     <link rel="stylesheet" href="{% static 'css/motivation.css' %}">
+
+    <style>
+        /* Enhanced navbar styling with glass effect */
+        .navbar {
+            background: rgba(15, 32, 39, 0.7) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 32, 39, 0.95) !important;
+            backdrop-filter: blur(30px) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .navbar .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            position: relative;
+            transition: color 0.3s ease !important;
+            margin: 0 8px;
+        }
+
+        .navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateX(-50%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar .nav-link:hover {
+            color: #c8e6f5 !important;
+        }
+
+        .navbar .nav-link.active {
+            color: #56ab2f !important;
+        }
+
+        .navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Logo enhancement */
+        .logo-animate {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* MSME badge styling */
+        .msme-text {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .msme-text:hover {
+            opacity: 1;
+        }
+
+        /* Enhanced footer with glass effect */
+        .footer {
+            background: rgba(0, 0, 0, 0.7) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .footer a {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #667eea !important;
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+    </style>
 </head>
 
 <body>
@@ -32,19 +134,19 @@ href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <div class="container">
 
     <div>
-        <a class="navbar-brand logo-animate" href="#">
+        <a class="navbar-brand logo-animate" href="{% url 'home' %}">
             <span class="error-part">Errors</span>
             <span class="two-part">2</span>
             <span class="expert-part">Experts</span>
         </a>
 
         <div class="msme-text">
-            <img src="{% static 'images/udyam.webp' %}" width="22">
+            <img src="{% static 'images/udyam.webp' %}" width="22" alt="MSME Registered">
             <small class="text-white" style="font-size:10px">MSME Registered</small>
         </div>
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -54,7 +156,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
     <li class="nav-item"><a class="nav-link text-white" href="{% url 'allcourse' %}">Courses</a></li>
     <li class="nav-item"><a class="nav-link text-white" href="{% url 'services' %}">Services</a></li>
-    {% comment %} <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
     <li class="nav-item"><a class="nav-link text-white" href="{% url 'careers' %}">Careers</a></li>
 </ul>
     </div>
@@ -62,17 +163,13 @@ href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   </div>
 </nav>
 
-
-
 <div style="margin-top:100px;">
     {% block content %}
     {% endblock %}
 </div>
 
-
-
-
-<footer class="footer bg-dark text-light pt-5 pb-4 mt-5">
+<!-- ===== FOOTER ===== -->
+<footer class="footer text-light pt-5 pb-4 mt-5">
     <div class="container">
         <div class="row">
 
@@ -106,7 +203,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
                 </p>
                 <p><strong>Email:</strong><br>
                     errors2experts.official@gmail.com
-
                 </p>
                 <p><strong>Mobile:</strong><br>
                     9363342646
@@ -132,54 +228,65 @@ href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         </div>
     </div>
 </footer>
-<script>
-document.getElementById("demoForm").addEventListener("submit", function(e){
-    e.preventDefault();
 
-    let form = this;
-    let formData = new FormData(form);
-
-    fetch("{% url 'demo_booking' %}", {
-        method: "POST",
-        headers: {
-            "X-CSRFToken": "{{ csrf_token }}"
-        },
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.status === "success"){
-            alert("Thank you! Demo booked successfully.");
-            form.reset();
-
-            let modal = bootstrap.Modal.getInstance(document.getElementById('demoModal'));
-            modal.hide();
-        }
-    });
-});
-</script>
-
-
-
-
+<!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-<script>AOS.init();</script>
-{% comment %} <script src="client.js"> {% endcomment %}
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Modern Interactions -->
+<script src="{% static 'js/modern-interactions.js' %}"></script>
+
+<!-- Initialize AOS -->
 <script>
 AOS.init({
     duration: 1000,
     once: true
 });
 </script>
+
+<!-- Demo Booking Form Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const demoForm = document.getElementById("demoForm");
+    if (demoForm) {
+        demoForm.addEventListener("submit", function(e){
+            e.preventDefault();
+
+            let form = this;
+            let formData = new FormData(form);
+
+            fetch("{% url 'demo_booking' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "success"){
+                    alert("Thank you! Demo booked successfully.");
+                    form.reset();
+
+                    let modal = bootstrap.Modal.getInstance(document.getElementById('demoModal'));
+                    if (modal) modal.hide();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    }
+});
+</script>
+
+<!-- Project Slider Handler -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.project-card');
     const prev = document.querySelector('.arrow.prev');
     const next = document.querySelector('.arrow.next');
+
+    if (cards.length === 0 || !prev || !next) return;
 
     let current = 0;
 
@@ -204,5 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showCard(current);
 });
 </script>
+
 </body>
 </html>
