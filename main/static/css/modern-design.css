@@ -1,0 +1,352 @@
+/* ============================================================================
+   MODERN DESIGN SYSTEM - Premium SaaS Aesthetic
+   Errors2Experts - Premium UI Modernization
+   ============================================================================ */
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+    /* Glass Effects */
+    --glass-light: rgba(255, 255, 255, 0.08);
+    --glass-medium: rgba(255, 255, 255, 0.12);
+    --glass-dark: rgba(0, 0, 0, 0.25);
+    --border-glass: rgba(255, 255, 255, 0.15);
+    
+    /* Gradient Palettes */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --success-gradient: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    --dark-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.16);
+    --shadow-xl: 0 30px 60px rgba(0, 0, 0, 0.2);
+    
+    /* Blur Effects */
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --blur-lg: 20px;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    
+    /* Colors */
+    --white: #ffffff;
+    --dark: #0f2027;
+    --light-blue: #203a43;
+    --accent-blue: #2c5364;
+    --success: #56ab2f;
+    --purple: #667eea;
+    --pink: #f5576c;
+}
+
+/* ===== SMOOTH SCROLLING ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== FOCUS STATES FOR ACCESSIBILITY ===== */
+:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.glass-effect {
+    background: var(--glass-medium);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(var(--blur-md));
+}
+
+.glass-effect-light {
+    background: var(--glass-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(var(--blur-lg));
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-success {
+    background: var(--success-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-elevation-1 {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow-elevation-2 {
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-elevation-3 {
+    box-shadow: var(--shadow-lg);
+}
+
+.shadow-elevation-4 {
+    box-shadow: var(--shadow-xl);
+}
+
+.rounded-xl {
+    border-radius: 20px;
+}
+
+.rounded-2xl {
+    border-radius: 24px;
+}
+
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ===== SELECTION STYLING ===== */
+::selection {
+    background: var(--purple);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--purple);
+    color: white;
+}
+
+/* ===== LINK STYLING ===== */
+a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ===== BUTTON BASE STYLES ===== */
+button,
+.btn {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button:disabled,
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== FORM STYLING ===== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    background: var(--glass-medium) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: white !important;
+    backdrop-filter: blur(var(--blur-md));
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s ease !important;
+    font-size: 15px !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    background: var(--glass-light) !important;
+    border-color: var(--purple) !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+}
+
+/* ===== MODAL ENHANCEMENTS ===== */
+.modal-content {
+    background: var(--glass-dark);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(var(--blur-lg));
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-glass);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-glass);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+    color: white;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* ===== CARD BASE STYLES ===== */
+.card {
+    background: var(--glass-medium);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(var(--blur-md));
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background: var(--glass-light);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.card-header {
+    background: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+/* ===== LOADING SKELETON ===== */
+.skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 8px;
+}
+
+/* ===== BADGE STYLING ===== */
+.badge {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.badge-success {
+    background: var(--success-gradient);
+}
+
+.badge-accent {
+    background: var(--accent-gradient);
+}
+
+/* ===== DIVIDER STYLING ===== */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--border-glass);
+    margin: 20px 0;
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .glass-effect,
+    .glass-effect-light {
+        background: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .navbar,
+    .footer {
+        display: none;
+    }
+}
